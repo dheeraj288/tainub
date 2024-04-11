@@ -7,3 +7,26 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+
+property = Property.create!({
+  name: 'sample property',
+  headline: "My new property",
+  address_1: "Delhi",
+  address_2: "Block-4",
+  description: "Very nice Hotel",
+  city: "Delhi",
+  state: "Haryana",
+  country: "India"
+})
+
+property = Property.create!({
+  name: 'sample property 2',
+  headline: "My new property 2",
+  address_1: "Noida",
+  address_2: "Block-4",
+  description: "Very nice Hotel",
+  city: "Noida",
+  state: " Greater Haryana",
+  country: "India"
+})

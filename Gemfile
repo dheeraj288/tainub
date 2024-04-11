@@ -62,3 +62,7 @@ end
 
 
 gem "tailwindcss-rails", "~> 2.4"
+
+gem "devise", "~> 4.9"
+
+gem "faker"
