@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Trainub</title>
+    <title>Airbnb | Holiday rentals, cabins, beach houses and more</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <%= favicon_link_tag 'favicon.ico' %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
@@ -10,20 +12,28 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
 
-    <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-/>
+    <% if controller_name == 'booking_payments' && action_name == 'create'%>
+      <%= stripe_javascript_tag %>
+    <% end %>
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <%# Date picker: https://flatpickr.js.org/getting-started/ %>
+    <%# <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"> %>
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <% if controller_name != 'registrations' && controller_name!= 'sessions'%>
-    <%= render "layouts/header"%>
+
+    <% if controller_name != 'registrations' && controller_name != 'sessions' %>
+      <%= render 'layouts/header' %>
     <% end %>
-  <%= yield %>
+    <%= yield %>
   </body>
 </html>
